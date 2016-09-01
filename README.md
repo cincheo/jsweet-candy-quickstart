@@ -17,7 +17,7 @@ You first need to install the JSweet candy in your local Maven repository:
 
 Then you can use it from another project. For example, clone the [jsweet-quickstart](https://github.com/cincheo/jsweet-quickstart) project and add the following dependency to the ``pom.xml``:
 
-```
+```xml
 		<dependency>
 			<groupId>myCandyGroup</groupId>
 			<artifactId>myCandy</artifactId>
@@ -27,7 +27,7 @@ Then you can use it from another project. For example, clone the [jsweet-quickst
 
 Now, edit the ``QuickStart.java`` class and in the ``main`` function, add something like:
 
-```
+```java
 System.out.println("isPrime: "+JSweetCandyAPI.isPrime(3));
 ```
 
