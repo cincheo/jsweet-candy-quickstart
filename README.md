@@ -37,6 +37,6 @@ Finally, the ``index.html`` file must include the JavaScript bundle. Add the fol
 <script type="text/javascript" src="myCandy-0.0.1-SNAPSHOT/bundle.js"></script>
 ```
 
-*Warning: the ``myCandy-0.0.1-SNAPSHOT/bundle.js`` gets extracted from the jar by JSweet, so it will not be available until you include the candy in your dependenies and run ``mvn generate-sources``.*
+*Warning: the ``myCandy-0.0.1-SNAPSHOT/bundle.js`` gets extracted from the jar by JSweet, so it will not be available until you include the candy in your dependencies and run ``mvn generate-sources``. Note that the extract location depends on the ``candiesJsOut`` option.*
 
 Generate again the source and open the ``index.html`` as explained in the [jsweet-quickstart](https://github.com/cincheo/jsweet-quickstart) project. You should see the log ``isPrime: true`` showing in your browser's console.
