@@ -12,6 +12,8 @@ For the sake of example, this project defines a simple function ``myCandy.API.is
 
 This project can be used as a template to create your own JSweet candies. 
 
+> NOTE: if you want to package a JSweet candy from an existing JavaScript library, then you should refer to the jsweet-candy-js-quickstart project.
+
 ## How to install the candy
 
 Get the project:
@@ -63,10 +65,20 @@ Generate again the source and open the ``index.html`` as explained in the [jswee
 
 When installing the candy, Maven also puts the ``myCandy.d.ts`` and ``myCandy.js`` bundles in the ``dist`` directory.
 
-From a TypeScript project, use the ``myCandy.d.ts`` to compile and include the ``myCandy.js`` bundle in your web page.
-
-From a JavaScript project, include the ``myCandy.js`` bundle in your web page.
+- From a TypeScript project, use the ``dist/myCandy.d.ts`` to compile and include the ``myCandy.js`` bundle in your web page.
+- From a JavaScript project, include the ``dist/myCandy.js`` bundle in your web page.
 
 ## How does it work?
 
-TBD
+In the ``pom.xml``, we use various options of the JSweet Maven plugin to package the candy. Key options are the following:
+
+- ``<bundle>true</bundle>``: bundles all the generated files in one single file called ``bundle.*``.
+- ``<outDir>src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}``</outDir>: puts the generated JavaScript bundle file (``bundle.js``) in the standard location, according to the Webjars conventions.
+- ``<declaration>true</declaration>``: ask JSweet to also generate the TypeScript definition file for the bundle (``bundle.d.ts``).
+- ``<dtsOut>src/main/resources/src/typings/${project.artifactId}/${project.version}</dtsOut>``: the place where to generate the  the TypeScript definition bundle file.
+
+Additionally, we use Maven resource filtering to automatically place the right transpiler version in the ``src/main/resources/META-INF/candy-metadata.json`` file. This is not mandatory, but if the wrong JSweet transpiler version is set, JSweet will report a warning when compiling with the candy.
+
+Finally, we use the Maven antrun plugin to copy the generated bundles in ``dist/myCandy.d.ts`` and ``dist/myCandy.js``.
+
+
