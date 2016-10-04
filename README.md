@@ -81,4 +81,8 @@ Additionally, we use Maven resource filtering to automatically place the right t
 
 Finally, we use the Maven antrun plugin to copy the generated bundles in ``dist/myCandy.d.ts`` and ``dist/myCandy.js``.
 
+## License
+
+Apache 2 Open Source license.
+
 
